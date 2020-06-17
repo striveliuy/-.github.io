@@ -172,7 +172,126 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><blockquote>
+<ul>
+<li><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><blockquote>
+<ul>
+<li><a href="">准备工作</a></li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="搭建GitHub博客"><a href="#搭建GitHub博客" class="headerlink" title="搭建GitHub博客"></a>搭建GitHub博客</h4><blockquote>
+<ul>
+<li><a href="">创建仓库</a></li>
+<li><a href="">绑定域名</a></li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH key"></a>配置SSH key</h4><blockquote>
+<ul>
+<li><a href="">测试是否成功</a></li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="使用Hexo写博客"><a href="#使用Hexo写博客" class="headerlink" title="使用Hexo写博客"></a>使用Hexo写博客</h4><blockquote>
+<ul>
+<li><a href="">Hexo简介</a></li>
+<li><a href="">原理</a></li>
+<li><a href="">注意事项</a></li>
+<li><a href="">安装</a></li>
+<li><a href="">初始化</a></li>
+<li><a href="">修改主题</a></li>
+<li><a href="">上传到github</a></li>
+<li><a href="">常用Hexo命令</a></li>
+<li><a href="">_config.yml</a></li>
+<li><a href="">写博客</a></li>
+</ul>
+</blockquote>
+</li>
+<li><h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4></li>
+<li><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
+</ul>
+</blockquote>
+<h4><table><tr><td bgcolor=#1ABDE6> 1. 前言  </td></tr></table></h4>
+
+<h6>&nbsp; &nbsp; 1.1 准备工作</h6>
+<hr></hr>
+&ensp;  在开始一切之前，你必须已经：
+-  有一个github账号
+- 安装了node.js、npm，了解相关知识
+- 安装了git客户端
+
+
+<h4><table><tr><td bgcolor=#1ABDE6> 2. 搭建GitHub博客 </td></tr></table> </h4>
+
+<h6>&nbsp; &nbsp; 2.1 创建仓库</h6>
+<hr></hr>
+&ensp;  新建一个<font color = #DD6D22>`你的用户名.github.io`</font>比如说，如果你的github用户名是test，那么你就新建`test.github.io`的仓库（必须是你的用户名，其它名称无效）。
+
+<p>​    由此可见，每一个github账号最多创建一个这样的可以直接通过域名访问的仓库。</p>
+<h6>&nbsp; &nbsp; 2.2 绑定域名</h6>
+<hr></hr>
+​    当然，你不绑定域名肯定也是可以的，就用默认的<font color = #DD6D22> `xxx.github.io`</font> 来访问，如果你想更个性一点，想拥有一个属于自己的域名，那也是OK的。
+
+<p>​    首先你要注册一个域名，域名注册以前总是推荐去<font color = #DD6D22><code>godaddy</code></font>，现在觉得其实国内的阿里云也挺不错的，价格也不贵，毕竟是大公司，放心！</p>
+<h4> <table><tr><td bgcolor=#1ABDE6>3. 配置SSH key </td></tr></table> </h4>
+
+<p>​    为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~&#x2F;. ssh #检查本机已存在的ssh密钥</span><br></pre></td></tr></table></figure>
+
+<p>​    如果提示：No such file or directory 说明你是第一次使用git。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
+
+<p>​    然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到<font color = #DD6D22><code>.ssh\id_rsa.pub</code></font>文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
+<center><img src="https://s1.ax1x.com/2020/06/17/NZE9l8.png" alt="NZE9l8.png" border="0" /></center>
+
+<p>​    将刚复制的内容粘贴到key那里，title随便填，保存。</p>
+<h4> <table><tr><td bgcolor=#1ABDE6>4. 使用Hexo写博客 </td></tr></table> </h4>
+
+<h6>&nbsp; &nbsp; 4.1 Hexo简介</h6>
+<hr></hr>
+
+<p>​    Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
+<p>​    官网：<a href="http://hexo.io/" target="_blank" rel="noopener">http://hexo.io</a></p>
+<p>​    github：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
+<h6>&nbsp; &nbsp; 4.2 Hexo原理</h6>
+<hr></hr>
+
+<p>​    由于github pages存放的都是静态文件，博客存放的不只是文章内容，还有文章列表、分类、标签、翻页等动态内容，假如每次写完一篇文章都要手动更新博文目录和相关链接信息，相信谁都会疯掉，所以hexo所做的就是将这些md文件都放在本地，每次写完文章后调用写好的命令来批量完成相关页面的生成，然后再将有改动的页面提交到github。</p>
+<h6>&nbsp; &nbsp; 4.3 注意事项</h6>
+<hr></hr>
+
+<p>​    安装之前先说注意事项：</p>
+<ol>
+<li><p>很多命令既可以用Windows的cmd来完成，也可以使用git bash来完成，但是部分命令会有一些问题，为避免不必要的问题，建议全部使用git bash来执行；</p>
+</li>
+<li><p>hexo不同版本差别比较大，网上很多文章的配置信息都是基于2.x的，所以注意不要被误导；</p>
+</li>
+<li><p>hexo有2种<code>_config.yml</code>文件，一个是根目录下的全局的<code>_config.yml</code>，一个是各个theme下的；</p>
+</li>
+</ol>
+<h6>&nbsp; &nbsp; 4.4 安装</h6>
+<hr></hr>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<h6>&nbsp; &nbsp; 4.5 初始化</h6>
+<hr></hr>
+
+<p>​    在电脑的某个地方新建一个名为hexo的文件夹（名字可以随便取），比如我的是<code>D:\hexo</code>，由于这个文件夹将来就作为你存放代码的地方，所以最好不要随便放。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &#x2F;f&#x2F;Workspaces&#x2F;hexo&#x2F;</span><br><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
+
+<p>​    hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：</p>
+<center><img src="https://s1.ax1x.com/2020/06/17/NZZQo9.png" alt="NZZQo9.png" border="0" /></center>
+
+<p>​    然后输入代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g # 生成</span><br><span class="line">$ hexo s # 启动服务</span><br></pre></td></tr></table></figure>
+
+<p>​    执行以上命令之后，hexo就会在public文件夹生成相关html文件，这些文件将来都是要提交到github去的。</p>
+<p>​    <code>hexo s</code>是开启本地预览服务，打开浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到内容，很多人会碰到浏览器一直在转圈但是就是加载不出来的问题，一般情况下是因为端口占用的缘故，因为4000这个端口太常见了。</p>
+<p>​    第一次初始化的时候hexo已经帮我们写了一篇名为 Hello World 的文章，默认的主题比较丑，打开时就是这个样子：</p>
+<p>​    </p>
+
       
 
       
